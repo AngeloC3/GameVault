@@ -1,16 +1,59 @@
-# Compiled class file
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDEs & Editors
+# =========================
+
+## IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+## Eclipse
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+bin/
+
+## NetBeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+## VS Code
+.vscode/
+
+# =========================
+# Build & Output
+# =========================
+target/        # Maven
+build/         # Gradle
+out/           # IntelliJ
+bin/           # Eclipse
+
+# =========================
+# Compiled files
+# =========================
 *.class
 
-# Log file
+# =========================
+# Logs
+# =========================
 *.log
 
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
+# =========================
+# Archives & Packages
+# =========================
 *.jar
 *.war
 *.nar
@@ -19,6 +62,18 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+# =========================
+# JVM crash logs
+# =========================
 hs_err_pid*
 replay_pid*
+
+# =========================
+# Misc
+# =========================
+*.ctxt
+.mtj.tmp/
+
+# Misc
+.idea/
+*.iml
