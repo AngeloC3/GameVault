@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.gamevault.controller.GameDetailModalController"
+      styleClass="game-card"
+      style="-fx-background-color: #1e1e1e; -fx-padding: 0; -fx-background-radius: 10;"
+      maxWidth="480" maxHeight="560" minWidth="480">
+
+    <!-- Header with close + expand -->
+    <HBox alignment="CENTER_LEFT" spacing="8"
+          style="-fx-padding: 12 12 12 16; -fx-border-color: #2a2a2a; -fx-border-width: 0 0 1 0;">
+        <Label fx:id="modalTitle" styleClass="page-title" HBox.hgrow="ALWAYS"/>
+        <Button fx:id="expandBtn" text="⤢" styleClass="collapse-button" onAction="#onExpand"
+                style="-fx-font-size: 14px;"/>
+        <Button text="✕" styleClass="collapse-button" onAction="#onClose"
+                style="-fx-font-size: 12px;"/>
+    </HBox>
+
+    <!-- Cover + info row -->
+    <HBox spacing="16" style="-fx-padding: 16;">
+        <ImageView fx:id="coverImage" fitWidth="130" fitHeight="90" preserveRatio="true"/>
+        <VBox spacing="6" VBox.vgrow="ALWAYS">
+            <Label fx:id="genreLabel"   styleClass="game-card-meta"/>
+            <Label fx:id="platformLabel" styleClass="game-card-meta"/>
+            <Label fx:id="releasedLabel" styleClass="game-card-meta"/>
+            <Label fx:id="communityRatingLabel" styleClass="game-card-meta"/>
+        </VBox>
+    </HBox>
+
+    <!-- Editable fields -->
+    <VBox spacing="10" style="-fx-padding: 0 16 16 16;">
+
+        <Label text="Status" styleClass="stat-label"/>
+        <ComboBox fx:id="statusCombo" maxWidth="Infinity"/>
+
+        <Label text="Your rating (1–100)" styleClass="stat-label"/>
+        <Slider fx:id="ratingSlider" min="0" max="100" blockIncrement="1"
+                style="-fx-padding: 0;"/>
+        <Label fx:id="ratingLabel" styleClass="game-card-meta"/>
+
+        <Label text="Notes" styleClass="stat-label"/>
+        <TextArea fx:id="notesArea" prefRowCount="3" promptText="Your thoughts..."
+                  styleClass="search-field" style="-fx-pref-height: 70px;"
+                  wrapText="true"/>
+
+        <HBox spacing="8" alignment="CENTER_RIGHT" style="-fx-padding: 4 0 0 0;">
+            <Button text="Remove from library" styleClass="filter-pill"
+                    style="-fx-text-fill: #bf5a5a; -fx-border-color: #4a2a2a;"
+                    onAction="#onRemove"/>
+            <Button text="Save" styleClass="filter-pill-active" onAction="#onSave"
+                    style="-fx-padding: 6 16 6 16;"/>
+        </HBox>
+
+    </VBox>
+</VBox>

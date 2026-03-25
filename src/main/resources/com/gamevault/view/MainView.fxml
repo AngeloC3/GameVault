@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.gamevault.controller.MainController"
+            stylesheets="@../styles/main.css"
+            prefWidth="1100" prefHeight="680">
+
+    <left>
+        <VBox fx:id="sidebar" styleClass="sidebar" prefWidth="200" minWidth="56" spacing="0">
+
+            <!-- Logo -->
+            <VBox fx:id="logoBox" spacing="2" style="-fx-padding: 20 16 16 16; -fx-border-color: #2a2a2a; -fx-border-width: 0 0 1 0;">
+                <Label fx:id="logoText" text="GameVault" styleClass="logo-text"/>
+                <Label fx:id="logoSub" text="your collection" styleClass="logo-sub"/>
+            </VBox>
+
+            <!-- Nav items -->
+            <VBox spacing="2" style="-fx-padding: 12 8 12 8;" VBox.vgrow="ALWAYS">
+                <Button fx:id="btnDashboard" text="  Dashboard" styleClass="nav-button"
+                        maxWidth="Infinity" onAction="#onDashboard"/>
+                <Button fx:id="btnLibrary" text="  My Library" styleClass="nav-button"
+                        maxWidth="Infinity" onAction="#onLibrary"/>
+                <Button fx:id="btnDiscover" text="  Discover" styleClass="nav-button"
+                        maxWidth="Infinity" onAction="#onDiscover"/>
+            </VBox>
+
+            <!-- Collapse button -->
+            <Button fx:id="collapseBtn" text="◀  Collapse"
+                    styleClass="collapse-button" maxWidth="Infinity"
+                    style="-fx-alignment: CENTER_LEFT; -fx-padding: 10 16 10 16;"
+                    onAction="#onToggleSidebar"/>
+
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea">
+            <!-- Views are loaded dynamically by the controller -->
+        </StackPane>
+    </center>
+
+</BorderPane>

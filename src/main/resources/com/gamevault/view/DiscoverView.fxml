@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.gamevault.controller.DiscoverController"
+      VBox.vgrow="ALWAYS" stylesheets="@../styles/main.css">
+
+    <!-- Top bar -->
+    <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="12">
+        <Label text="Discover" styleClass="page-title"/>
+        <HBox HBox.hgrow="ALWAYS"/>
+        <TextField fx:id="searchField" promptText="Search for a game..."
+                   styleClass="search-field" prefWidth="280"
+                   onAction="#onSearch"/>
+        <Button text="Search" styleClass="filter-pill-active"
+                style="-fx-padding: 6 16 6 16;" onAction="#onSearch"/>
+    </HBox>
+
+    <!-- Status message -->
+    <Label fx:id="statusLabel" styleClass="game-card-meta"
+           style="-fx-padding: 12 20 0 20;"
+           text="Search for a game to add it to your library."/>
+
+    <!-- Results grid -->
+    <ScrollPane VBox.vgrow="ALWAYS" fitToWidth="true"
+                style="-fx-background-color: transparent; -fx-background: transparent;
+                        -fx-padding: 12 20 16 20;">
+        <content>
+            <FlowPane fx:id="resultsGrid" hgap="12" vgap="12"
+                      style="-fx-background-color: transparent;"/>
+        </content>
+    </ScrollPane>
+
+</VBox>

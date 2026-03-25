@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.gamevault.controller.GameDetailController"
+      VBox.vgrow="ALWAYS" stylesheets="@../styles/main.css">
+
+    <!-- Top bar with back button -->
+    <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="12">
+        <Button text="← Back" styleClass="collapse-button" onAction="#onBack"/>
+        <Label fx:id="detailTitle" styleClass="page-title"/>
+    </HBox>
+
+    <ScrollPane VBox.vgrow="ALWAYS" fitToWidth="true"
+                style="-fx-background-color: transparent; -fx-background: transparent;
+                        -fx-padding: 24 32 24 32;">
+        <content>
+            <VBox spacing="24">
+
+                <!-- Hero row: cover + core info -->
+                <HBox spacing="24" alignment="TOP_LEFT">
+
+                    <ImageView fx:id="coverImage" fitWidth="220" fitHeight="150"
+                               preserveRatio="true"/>
+
+                    <VBox spacing="10" HBox.hgrow="ALWAYS">
+                        <Label fx:id="titleLabel"
+                               style="-fx-text-fill: #e8e8e8; -fx-font-size: 22px; -fx-font-weight: bold;"/>
+                        <Label fx:id="genreLabel"    styleClass="game-card-meta" style="-fx-font-size: 13px;"/>
+                        <Label fx:id="platformLabel" styleClass="game-card-meta" style="-fx-font-size: 13px;"/>
+                        <Label fx:id="releasedLabel" styleClass="game-card-meta" style="-fx-font-size: 13px;"/>
+                        <HBox spacing="6" alignment="CENTER_LEFT">
+                            <Label text="Community rating:" styleClass="game-card-meta" style="-fx-font-size: 13px;"/>
+                            <Label fx:id="communityRatingLabel"
+                                   style="-fx-text-fill: #e0c97a; -fx-font-size: 13px;"/>
+                        </HBox>
+                    </VBox>
+
+                </HBox>
+
+                <!-- Divider -->
+                <Region style="-fx-background-color: #2a2a2a; -fx-pref-height: 1;"/>
+
+                <!-- Personal section -->
+                <VBox spacing="16">
+                    <Label text="Your entry"
+                           style="-fx-text-fill: #888888; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+
+                    <HBox spacing="24">
+
+                        <!-- Status -->
+                        <VBox spacing="6" HBox.hgrow="ALWAYS">
+                            <Label text="Status" styleClass="stat-label"/>
+                            <ComboBox fx:id="statusCombo" maxWidth="Infinity"/>
+                        </VBox>
+
+                        <!-- Rating -->
+                        <VBox spacing="6" HBox.hgrow="ALWAYS">
+                            <Label text="Your rating" styleClass="stat-label"/>
+                            <Slider fx:id="ratingSlider" min="0" max="100" blockIncrement="1"/>
+                            <Label fx:id="ratingLabel" styleClass="game-card-meta"/>
+                        </VBox>
+
+                    </HBox>
+
+                    <!-- Notes -->
+                    <VBox spacing="6">
+                        <Label text="Notes &amp; review" styleClass="stat-label"/>
+                        <TextArea fx:id="notesArea" prefRowCount="6"
+                                  promptText="Write your thoughts, review, tips..."
+                                  styleClass="search-field" wrapText="true"/>
+                    </VBox>
+
+                    <!-- Actions -->
+                    <HBox spacing="8" alignment="CENTER_RIGHT">
+                        <Button text="Remove from library" styleClass="filter-pill"
+                                style="-fx-text-fill: #bf5a5a; -fx-border-color: #4a2a2a;"
+                                onAction="#onRemove"/>
+                        <Button text="Save changes" styleClass="filter-pill-active"
+                                style="-fx-padding: 7 20 7 20;" onAction="#onSave"/>
+                    </HBox>
+
+                </VBox>
+
+            </VBox>
+        </content>
+    </ScrollPane>
+
+</VBox>

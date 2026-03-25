@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.gamevault.controller.LibraryController"
+      VBox.vgrow="ALWAYS" stylesheets="@../styles/main.css">
+
+    <!-- Top bar -->
+    <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="12">
+        <Label text="My Library" styleClass="page-title"/>
+        <HBox HBox.hgrow="ALWAYS"/>
+        <TextField fx:id="searchField" promptText="Search library..."
+                   styleClass="search-field" prefWidth="220"/>
+    </HBox>
+
+    <!-- Filter pills -->
+    <HBox spacing="6" style="-fx-padding: 12 20 0 20;">
+        <Button fx:id="filterAll"       text="All"       styleClass="filter-pill,filter-pill-active" onAction="#onFilter"/>
+        <Button fx:id="filterPlaying"   text="Playing"   styleClass="filter-pill" onAction="#onFilter"/>
+        <Button fx:id="filterBacklog"   text="Backlog"   styleClass="filter-pill" onAction="#onFilter"/>
+        <Button fx:id="filterCompleted" text="Completed" styleClass="filter-pill" onAction="#onFilter"/>
+        <Button fx:id="filterWishlist"  text="Wishlist"  styleClass="filter-pill" onAction="#onFilter"/>
+        <Button fx:id="filterDropped"   text="Dropped"   styleClass="filter-pill" onAction="#onFilter"/>
+    </HBox>
+
+    <!-- Game grid in a scroll pane -->
+    <ScrollPane VBox.vgrow="ALWAYS" fitToWidth="true"
+                style="-fx-background-color: transparent; -fx-background: transparent; -fx-padding: 12 20 16 20;">
+        <content>
+            <FlowPane fx:id="gameGrid" hgap="12" vgap="12"
+                      style="-fx-background-color: transparent;"/>
+        </content>
+    </ScrollPane>
+
+    <!-- Overlay container (modal lives here) -->
+    <StackPane fx:id="modalOverlay" visible="false" managed="false"
+               style="-fx-background-color: rgba(0,0,0,0.7);"
+               VBox.vgrow="ALWAYS"/>
+
+</VBox>

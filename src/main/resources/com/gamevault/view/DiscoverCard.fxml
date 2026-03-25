@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:id="cardRoot"
+      fx:controller="com.gamevault.controller.DiscoverCardController"
+      styleClass="game-card" prefWidth="170" spacing="0">
+
+    <ImageView fx:id="coverImage" fitWidth="170" fitHeight="100" preserveRatio="false"/>
+
+    <VBox spacing="4" style="-fx-padding: 8 10 8 10;">
+        <Label fx:id="titleLabel" styleClass="game-card-title" maxWidth="150"
+               style="-fx-text-overrun: ELLIPSIS;"/>
+        <HBox alignment="CENTER_LEFT" spacing="4">
+            <Label fx:id="genreLabel" styleClass="game-card-meta"/>
+            <HBox HBox.hgrow="ALWAYS"/>
+            <Label fx:id="ratingLabel" style="-fx-text-fill: #e0c97a; -fx-font-size: 10px;"/>
+        </HBox>
+        <Button fx:id="addButton" text="+ Add to library"
+                styleClass="filter-pill-active"
+                maxWidth="Infinity"
+                style="-fx-font-size: 10px; -fx-padding: 4 8 4 8; -fx-cursor: hand;"/>
+    </VBox>
+
+</VBox>

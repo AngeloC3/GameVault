@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:id="cardRoot"
+      fx:controller="com.gamevault.controller.GameCardController"
+      styleClass="game-card" prefWidth="170" spacing="0">
+
+    <!-- Cover image -->
+    <ImageView fx:id="coverImage" fitWidth="170" fitHeight="100" preserveRatio="false">
+        <viewport>
+            <javafx.geometry.Rectangle2D width="170" height="100"/>
+        </viewport>
+    </ImageView>
+
+    <!-- Card body -->
+    <VBox spacing="4" style="-fx-padding: 8 10 8 10;">
+        <Label fx:id="titleLabel" styleClass="game-card-title" maxWidth="150"
+               style="-fx-text-overrun: ELLIPSIS;"/>
+        <HBox alignment="CENTER_LEFT" spacing="6">
+            <Label fx:id="genreLabel" styleClass="game-card-meta"/>
+            <HBox HBox.hgrow="ALWAYS"/>
+            <Label fx:id="statusBadge" styleClass="badge"/>
+        </HBox>
+    </VBox>
+
+</VBox>
